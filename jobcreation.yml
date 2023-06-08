@@ -1,0 +1,42 @@
+service team jenkins controller URL:
+  email_id: service team mail id
+  service_name: Name of service team
+  folder: folder structure for job creation
+  pipeline_scm:
+    pipeline:
+      pipeline_scm_gitrepo: repository name where pipeline script present
+      scriptpath: path of the pipeline script
+      branch: git Branch where pipeline script present
+    jobs:
+      - job_description_job-1:
+          job_name: name of the job-1
+          git-repo: reponame where the jobconfigfile present
+          project-dir: directory of the jobconfig file
+          stages: stages to run from the jobconfig file
+          job-parameters:
+            - string:
+                name: name of the parameter
+                value: default value of the param
+            - choice:
+                name: name of choice type param
+                value: 
+                  - value 1
+                  - value 2
+                  - value 3
+        - job_description_job-2:
+          job_name: name of the job-2
+          git-repo: reponame where the jobconfigfile present
+          project-dir: directory of the jobconfig file
+          stages: stages to run from the jobconfig file
+          job-parameters:
+            - string:
+                name: name of the parameter
+                value: default value of the param
+            - choice:
+                name: name of choice type param
+                value: 
+                  - value 1
+                  - value 2
+                  - value 3
+          
+  
