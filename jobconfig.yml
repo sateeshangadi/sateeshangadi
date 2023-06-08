@@ -1,0 +1,27 @@
+stages:
+#stages will execute build commands related to job and run as one by one stage
+  smoke:
+    maven:
+      clean
+      test
+     -DtestEnv=${testEnv}
+     -Dcucumber.option="--@ smoke"
+   pom_dir: pom_directory.xml
+   
+   regression:
+     maven:
+       clean
+       test
+      -DtestEnv=${testEnv}
+      -Dcucumber.option="--@ regression"
+     pom_dir: pom_directory.xml
+     
+  # These steps will execute after the build execution it will help to notify the team on build status   
+   postbuild-action:
+     email-notification:
+       email-id: teams mail id
+       subject: subject to be mentioned
+       message: msg need to be mentioned which will come along with build url
+     slack-notification:
+       slack-channel: channel name
+       message: msg need to be mentioned which will come along with build url
